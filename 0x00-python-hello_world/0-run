@@ -1,2 +1,2 @@
 #!/bin/bash
-python $MAIN_FILE
+python3 $MAIN_FILE
