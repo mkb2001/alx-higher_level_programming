@@ -1,9 +1,9 @@
 #!/usr/bin/python3
-def uppercase(str_u):
-    strlen = len(str_u)
+def uppercase(str):
+    strlen = len(str)
     i = 0
     while i < strlen:
-        char = ord(str_u[i])
+        char = ord(str[i])
         if char < 97 or char > 122:
             print("{}".format(chr(char)), end="" if i < strlen - 1 else "\n")
         elif 97 <= char <= 122:
