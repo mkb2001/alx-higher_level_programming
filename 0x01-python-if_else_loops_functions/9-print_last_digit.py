@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 def print_last_digit(number):
-    if number in range(0 , 10):
+    if number in range(0, 10):
         print(number, end="")
         return number
     elif number < 0:
