@@ -1,2 +1,5 @@
 #!/usr/bin/python3
-print(*["%c" % a for a in range(ord('a'),ord('z')+1) if "%c" % a not in 'qe'],sep='',end='')
+for i in range(97, 123):
+    if i == 101 or i == 113:
+        continue
+    print("{}".format(chr(i)), end='')
