@@ -1,6 +1,3 @@
-//
-// Created by mkb on 3/20/24.
-//
 #include "lists.h"
 void reverse_listint(listint_t **head)
 {

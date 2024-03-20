@@ -12,6 +12,8 @@
  */
 #include <stdlib.h>
 #include <stdio.h>
+#include <unistd.h>
+
 typedef struct listint_s
 {
     int n;
