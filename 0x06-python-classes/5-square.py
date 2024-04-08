@@ -21,11 +21,13 @@ class Square:
 
     """This Function gets the size"""
 
+    @property
     def size(self):
         return self.__size
 
     """This Function sets the"""
 
+    @size.setter
     def size(self, value):
         if isinstance(value, int):
             if value >= 0:

@@ -22,11 +22,13 @@ class Square:
 
     """This Function gets the size"""
 
+    @property
     def size(self):
         return self.__size
 
     """This Function sets the"""
 
+    @size.setter
     def size(self, value):
         if isinstance(value, int):
             if value >= 0:
@@ -36,13 +38,16 @@ class Square:
         else:
             raise TypeError("size must be an integer")
 
+
     """this returns the position value"""
 
+    @property
     def position(self):
         return self.__position
 
     """This sets the position value"""
 
+    @position.setter
     def position(self, value):
         if isinstance(value, tuple) and (len(value) == 2):
             self.__position = value[0]
