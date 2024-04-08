@@ -30,7 +30,7 @@ class Square:
     @size.setter
     def size(self, value):
         if isinstance(value, int):
-            if value < 0:
+            if value >= 0:
                 self.__size = value
             else:
                 raise ValueError("size must be >= 0")
