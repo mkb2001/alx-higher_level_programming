@@ -5,7 +5,6 @@
 
 class Node:
     """Class to define a Node"""
-
     def __init__(self, data, next_node=None):
         if isinstance(data, int):
             self.__data = data
@@ -23,24 +22,25 @@ class Node:
 
     @data.setter
     def data(self, value):
-        if not (isinstance(value, int)):
+        if isinstance(value, int):
+            self.__data = value
+        else:
             raise TypeError("data must be an integer")
-        self.__data = value
 
     @property
     def next_node(self):
-        return self.__data
+        return self.__next_node
 
     @next_node.setter
     def next_node(self, value):
-        if not (isinstance(value, Node) or value is None):
+        if value is None or isinstance(value, Node):
+            self.__next_node = value
+        else:
             raise TypeError("next_node must be a Node object")
-        self.__next_node = value
 
 
 class SinglyLinkedList:
     """" Class to define a linked list and insert a Node"""
-
     def __init__(self):
         self.__head = None
 
@@ -48,7 +48,7 @@ class SinglyLinkedList:
         current = self.__head
         nodes = []
         while current:
-            nodes.append(current)
+            nodes.append(str(current.data))
             current = current.next_node
         if nodes:
             return "\n".join(nodes)
@@ -68,7 +68,7 @@ class SinglyLinkedList:
             return
 
         current = self.__head
-        while current.next_node is not None and value > current.next_node.value.data:
+        while current.next_node is not None and value > current.next_node.data:
             current = current.next_node
 
         new_node.next_node = current.next_node
