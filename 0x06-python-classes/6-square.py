@@ -52,12 +52,9 @@ class Square:
             if len(value) == 2:
                 self.__position = value
             else:
-                raise TypeError("position must be a tuple of 2 positive"
-                                "integers")
+                raise TypeError("position must be a tuple of 2 positive integers")
         else:
-            raise TypeError("position must be a tuple of 2 positive"
-
-                            "integers")
+            raise TypeError("position must be a tuple of 2 positive integers")
 
     """This Function prints the class"""
 
