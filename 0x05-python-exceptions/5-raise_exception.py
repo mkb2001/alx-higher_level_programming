@@ -1,3 +1,6 @@
 #!/usr/bin/python3
 def raise_exception():
-    raise Exception("Exception has been raised")
+    try:
+        raise Exception("Exception has been raised")
+    except Exception as e:
+        raise e
