@@ -55,13 +55,15 @@ class Rectangle:
             print()
 
     def str(self):
-        """Returns the shape of the object"""
-        res = ""
+        """Return the printable representation of the Rectangle.
+
+                Represents the rectangle with the # character.
+                """
         if self.__width == 0 or self.__height == 0:
-            print("")
-        for i in range(self.__width):
-            for j in range(self.__height):
-                res += '#'
-            # print()
-            res += '\n'
-        return res
+            return ("")
+        rect = []
+        for i in range(self.__height):
+            [rect.append('#') for j in range(self.__width)]
+            if i != self.__height - 1:
+                rect.append("\n")
+        return ("".join(rect))
