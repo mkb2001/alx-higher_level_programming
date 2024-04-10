@@ -6,7 +6,8 @@ class Rectangle:
     """This is a class representation of a rectangle i Python"""
 
     def __init__(self, width=0, height=0):
-        if not isinstance(width, int) or not isinstance(height, int):
+        if type(width) is not int or type(height) is not int:
+            # if not isinstance(width, int) or not isinstance(height, int):
             raise TypeError("width must be an integer")
         if width < 0 or height < 0:
             raise ValueError("width must be >= 0")
@@ -19,7 +20,7 @@ class Rectangle:
 
     @width.setter
     def width(self, value):
-        if not isinstance(value, int):
+        if type(value) is not type(self.__width):
             raise TypeError("width must be an integer")
         if value < 0:
             raise ValueError("width must be >= 0")
@@ -31,7 +32,7 @@ class Rectangle:
 
     @height.setter
     def height(self, value):
-        if not isinstance(value, int):
+        if type(value) is not type(self.__height):
             raise TypeError("height must be an integer")
         if value < 0:
             raise ValueError("height must be >= 0")
