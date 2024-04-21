@@ -1,23 +1,38 @@
 #!/usr/bin/python3
 """
-Write a script that adds all arguments to a Python list, and then save them to a file:
-
-You must use your function save_to_json_file from 5-save_to_json_file.py
-You must use your function load_from_json_file from 6-load_from_json_file.py
-The list must be saved as a JSON representation in a file named add_item.json
-If the file doesn’t exist, it should be created
-You don’t need to manage file permissions / exceptions.
+Module that adds all argumetns to a Python list, and saves
+a JSON representation to a file
 """
+
+import sys
+import json
 
 save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
 load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
 
 
-def add_item(args):
-    try:
-        my_list = load_from_json_file("add_item.json")
-    except:
-        my_list = []
-    for arg in args:
-        my_list.append(arg)
-    save_to_json_file(my_list, "add_item.json")
+def add_argument():
+    """
+    Appends arguments from terminal and saves json representation to
+    file add_item.json
+    """
+
+    filename = 'add_item.json'
+    arg_list = []
+
+    with open(filename, mode='a+', encoding='utf-8') as my_file:
+        my_file.seek(0)
+        file_content = my_file.read()
+        if len(file_content) > 0:
+            json_arg = json.loads(file_content)
+            arg_list += json_arg
+
+    for arg in sys.argv[1:]:
+        arg_list.append(arg)
+
+    save_to_json_file(arg_list, filename)
+    json_arg = load_from_json_file(filename)
+    return json_arg
+
+
+add_argument()
