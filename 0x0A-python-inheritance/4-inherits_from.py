@@ -11,4 +11,4 @@ def inherits_from(obj, a_class):
     :param a_class:
     :return:
     """
-    return issubclass(type(obj), a_class) and type(obj) != a_class
+    return issubclass(type(obj), a_class) and a_class is not type(obj)

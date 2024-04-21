@@ -11,4 +11,4 @@ def is_same_class(obj, a_class):
     :param a_class:
     :return:
     """
-    return type(obj) == a_class
+    return a_class is type(obj)
