@@ -5,6 +5,9 @@ This is a module about inheritance
 
 
 class MyList(list):
+    """
+      New Class that extends list class
+    """
 
     def print_sorted(self):
         """
