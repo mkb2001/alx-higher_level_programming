@@ -7,35 +7,30 @@ Base = __import__('models.base').Base
 class Rectangle(Base):
     """ Rectangle Class """
 
-    def __init__(self, width=0, height=0):
+    def __init__(self, width, height, x=0, y=0, id=None):
         """ Constructor """
-        self.width = width
-        self.height = height
+        self.__width = width
+        self.__height = height
+        self.__x = x
+        self.__y = y
+        super().__init__(id)
 
     @property
     def width(self):
-        """ Getter for width """
+        """ Getter """
         return self.__width
 
     @width.setter
     def width(self, value):
-        """ Setter for width """
-        if not isinstance(value, int):
-            raise TypeError("width must be an integer")
-        if value < 0:
-            raise ValueError("width must be >= 0")
+        """ Setter """
         self.__width = value
 
     @property
     def height(self):
-        """ Getter for height """
+        """ Getter """
         return self.__height
 
     @height.setter
     def height(self, value):
-        """ Setter for height """
-        if not isinstance(value, int):
-            raise TypeError("height must be an integer")
-        if value < 0:
-            raise ValueError("height must be >= 0")
+        """ Setter """
         self.__height = value
