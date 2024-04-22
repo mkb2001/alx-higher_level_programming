@@ -77,3 +77,33 @@ class Base:
         :param list_squares:
         :return:
         """
+        import turtle
+        import random
+
+        turtle.title('Draw')
+        turtle.bgcolor('black')
+        turtle.setup(width=800, height=600)
+        turtle.speed(0)
+        turtle.hideturtle()
+
+        for rect in list_rectangles:
+            turtle.penup()
+            turtle.goto(rect.x, rect.y)
+            turtle.pendown()
+            turtle.color(random.random(), random.random(), random.random())
+            for i in range(2):
+                turtle.forward(rect.width)
+                turtle.right(90)
+                turtle.forward(rect.height)
+                turtle.right(90)
+
+        for square in list_squares:
+            turtle.penup()
+            turtle.goto(square.x, square.y)
+            turtle.pendown()
+            turtle.color(random.random(), random.random(), random.random())
+            for i in range(4):
+                turtle.forward(square.size)
+                turtle.right(90)
+
+        turtle.done()
