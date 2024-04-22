@@ -9,10 +9,38 @@ class Rectangle(Base):
 
     def __init__(self, width, height, x=0, y=0, id=None):
         """ Constructor """
-        self.__width = width
-        self.__height = height
-        self.__x = x
-        self.__y = y
+        if type(width) is int:
+            if width > 0:
+                self.__width = width
+            else:
+                raise ValueError('width must be > 0')
+        else:
+            raise TypeError('width must be an integer')
+
+        if type(height) is int:
+            if height > 0:
+                self.__height = height
+            else:
+                raise ValueError('height must be > 0')
+        else:
+            raise TypeError('height must be an integer')
+
+        if type(x) is int:
+            if x >= 0:
+                self.__x = x
+            else:
+                raise ValueError('x must be >= 0')
+        else:
+            raise TypeError('x must be an integer')
+
+        if type(y) is int:
+            if y >= 0:
+                self.__y = y
+            else:
+                raise ValueError('y must be >= 0')
+        else:
+            raise TypeError('y must be an integer')
+
         super().__init__(id)
 
     @property
