@@ -54,3 +54,26 @@ class Base:
                 return [cls.create(**dict) for dict in list_dicts]
         except FileNotFoundError:
             return []
+
+    def save_to_file_csv(cls, list_objs):
+        """ Writes the CSV string representation of list_objs to a file """
+        filename = cls.__name__ + '.csv'
+        with open(filename, 'w') as file:
+            if list_objs is None:
+                file.write('')
+            else:
+                for obj in list_objs:
+                    file.write(obj.to_csv())
+                    file.write('\n')
+
+    def draw(list_rectangles, list_squares):
+        """
+        Update the class Base by adding the static method def draw(list_rectangles, list_squares): that opens a window and draws all the Rectangles and Squares:
+
+        You must use the Turtle graphics module
+        To install it: sudo apt-get install python3-tk
+        To make the GUI available outside your vagrant machine, add this line in your Vagrantfile: config.ssh.forward_x11 = true
+        No constraints for color, shape etc… be creative!
+        :param list_squares:
+        :return:
+        """
