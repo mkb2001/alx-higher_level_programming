@@ -148,3 +148,7 @@ class Rectangle(Base):
                 raise ValueError('y must be >= 0')
         else:
             raise TypeError('y must be an integer')
+
+    def to_dictionary(self):
+        """ Returns the dictionary representation of a Rectangle """
+        return {'id': self.id, 'width': self.width, 'height': self.height, 'x': self.x, 'y': self.y}
