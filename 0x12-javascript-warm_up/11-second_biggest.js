@@ -1,16 +1,22 @@
 #!/usr/bin/node
-
-function secondMax() {
-    let max = -Infinity;
-    let secondMax = -Infinity;
-    for (let i = 0; i < arguments.length; i++) {
-        let num = parseInt(arguments[i]);
-        if (num > max) {
-            secondMax = max;
-            max = num;
-        } else if (num > secondMax && num < max) {
-            secondMax = num;
-        }
+let values = [];
+let result;
+process.argv.slice(2).forEach(val => {
+  values.push(Math.floor(Number(val)));
+});
+if (values.length < 2) {
+  console.log(0);
+} else {
+  function biggestValue () {
+    result = values[0];
+    for (let i = 0; i < values.length; i++) {
+      if (values[i] > result) {
+        result = values[i];
+      }
     }
-    console.log(secondMax === -Infinity ? 0 : secondMax);
+  }
+  biggestValue();
+  values = values.filter(value => value !== result);
+  biggestValue();
+  console.log(result);
 }

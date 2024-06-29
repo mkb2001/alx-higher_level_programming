@@ -1,15 +1,7 @@
 #!/usr/bin/node
-
-const args = process.argv.slice(2);
-const a = Number.parseInt(args[0], 10);
-const b = Number.parseInt(args[1], 10);
-
-function add(a, b) {
-    return a + b;
+const a = Math.floor(Number(process.argv[2]));
+const b = Math.floor(Number(process.argv[3]));
+function add (a, b) {
+  console.log(a + b);
 }
-
-if (Number.isNaN(a) || Number.isNaN(b)) {
-    console.log("Invalid input");
-} else {
-    console.log(add(a, b));
-}
+add(a, b);
